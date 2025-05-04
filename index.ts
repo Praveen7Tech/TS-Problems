@@ -497,57 +497,265 @@
 
 // 22
 
-function getArray(rows: number, cols: number): number[][] {
-    let array: number[][] = [];
+// function getArray(rows: number, cols: number): number[][] {
+//     let array: number[][] = [];
     
-    for (let i = 0; i < rows; i++) {
-      let row: number[] = [];
-      for (let j = 0; j < cols; j++) {
-        let value: number = parseInt(prompt(`Enter value for array[${i + 1}][${j + 1}]:`) || "0");
-        row.push(value);
-      }
-      array.push(row);
-    }
+//     for (let i = 0; i < rows; i++) {
+//       let row: number[] = [];
+//       for (let j = 0; j < cols; j++) {
+//         let value: number = parseInt(prompt(`Enter value for array[${i + 1}][${j + 1}]:`) || "0");
+//         row.push(value);
+//       }
+//       array.push(row);
+//     }
     
-    return array;
-  }
+//     return array;
+//   }
   
-  function addArray(array1: number[][], array2: number[][], rows: number, cols: number): number[][] {
-    let resultArray: number[][] = [];
+//   function addArray(array1: number[][], array2: number[][], rows: number, cols: number): number[][] {
+//     let resultArray: number[][] = [];
     
-    for (let i = 0; i < rows; i++) {
-      let row: number[] = [];
-      for (let j = 0; j < cols; j++) {
-        row.push(array1[i][j] + array2[i][j]);  
-      }
-      resultArray.push(row);
-    }
+//     for (let i = 0; i < rows; i++) {
+//       let row: number[] = [];
+//       for (let j = 0; j < cols; j++) {
+//         row.push(array1[i][j] + array2[i][j]); 
+//       }
+//       resultArray.push(row);
+//     }
     
-    return resultArray;
-  }
+//     return resultArray;
+//   }
   
-  function displayArray(array: number[][]): void {
-    console.log("Sum of array 1 and array 2:");
-    for (let i = 0; i < array.length; i++) {
-      console.log(array[i].join('\t'));  
-    }
-  }
+//   function displayArray(array: number[][]): void {
+//     console.log("Sum of array 1 and array 2:");
+//     for (let i = 0; i < array.length; i++) {
+//       console.log(array[i].join('\t')); 
+//     }
+//   }
   
-  function main(): void {
-    let size: number = parseInt(prompt("Enter the size of the array (rows/columns):") || "0");
+//   function main(): void {
+//     let size: number = parseInt(prompt("Enter the size of the array (rows/columns):") || "0");
     
-    console.log("Enter the values of array 1");
-    let array1 = getArray(size, size);  
+//     console.log("Enter the values of array 1");
+//     let array1 = getArray(size, size);  
     
-    console.log("Enter the values of array 2");
-    let array2 = getArray(size, size);  
+//     console.log("Enter the values of array 2");
+//     let array2 = getArray(size, size);  
     
-    let sumArray = addArray(array1, array2, size, size);  
+//     let sumArray = addArray(array1, array2, size, size); 
     
-    displayArray(sumArray);  
+//     displayArray(sumArray); 
+//   }
   
-  main();
+//   main();
   
+
+// 23
+
+// class Array2D {
+//     private array: number[][];
+  
+//     constructor(size: number) {
+//       this.array = new Array(size).fill(0).map(() => new Array(size).fill(0)); 
+//     }
+//     getArray(): void {
+//       for (let i = 0; i < this.array.length; i++) {
+//         for (let j = 0; j < this.array[i].length; j++) {
+//           let value: number = parseInt(prompt(`Enter value for array[${i + 1}][${j + 1}]:`) || "0");
+//           this.array[i][j] = value;
+//         }
+//       }
+//     }
+//     displayArray(): void {
+//       console.log("Array elements are:");
+//       for (let i = 0; i < this.array.length; i++) {
+//         console.log(this.array[i].join('\t'));  
+//       }
+//     }
+//   }
+  
+//   function main(): void {
+//     let size: number = parseInt(prompt("Enter the size of the array (rows/columns):") || "0");
+  
+//     let array2D = new Array2D(size); 
+  
+//     array2D.getArray();  
+//     array2D.displayArray();  
+//   }
+  
+//   main();
+  
+
+// 24
+
+// class Area {
+//     circle(radius: number): number {
+//       return Math.PI * radius * radius;
+//     }
+  
+//     square(side: number): number {
+//       return side * side;
+//     }
+  
+//     rectangle(length: number, width: number): number {
+//       return length * width;
+//     }
+  
+//     triangle(base: number, height: number): number {
+//       return (base * height) / 2;
+//     }
+//   }
+  
+//   class MyClass extends Area {
+//     public static main(): void {
+//       const myClass = new MyClass();
+//       const choice = parseInt(prompt(`Select an option:
+//         1. Circle
+//         2. Square
+//         3. Rectangle
+//         4. Triangle
+//         5. Exit
+//       `) || "0");
+  
+//       switch (choice) {
+//         case 1:
+//           const radius = parseFloat(prompt("Enter the radius of the circle:") || "0");
+//           const circleArea = myClass.circle(radius);
+//           console.log(`Area of the circle: ${circleArea}`);
+//           break;
+//         case 2:
+//           const side = parseFloat(prompt("Enter the side length of the square:") || "0");
+//           const squareArea = myClass.square(side);
+//           console.log(`Area of the square: ${squareArea}`);
+//           break;
+//         case 3:
+//           const length = parseFloat(prompt("Enter the length of the rectangle:") || "0");
+//           const width = parseFloat(prompt("Enter the width of the rectangle:") || "0");
+//           const rectangleArea = myClass.rectangle(length, width);
+//           console.log(`Area of the rectangle: ${rectangleArea}`);
+//           break;
+//         case 4:
+//           const base = parseFloat(prompt("Enter the base of the triangle:") || "0");
+//           const height = parseFloat(prompt("Enter the height of the triangle:") || "0");
+//           const triangleArea = myClass.triangle(base, height);
+//           console.log(`Area of the triangle: ${triangleArea}`);
+//           break;
+//         case 5:
+//           console.log("Exiting...");
+//           break;
+//         default:
+//           console.log("Invalid choice! Please select a valid option.");
+//       }
+//     }
+//   }
+  
+//   MyClass.main();
+  
+  // 25
+
+//   var library = [
+//     {
+//       title: 'Bill Gates',
+//       author: 'The Road Ahead',
+//       readingStatus: true
+//     },
+//     {
+//       title: 'Steve Jobs',
+//       author: 'Walter Isaacson',
+//       readingStatus: true
+//     },
+//     {
+//       title: 'Mockingjay: The Final Book of The Hunger Games',
+//       author: 'Suzanne Collins',
+//       readingStatus: false
+//     }
+//   ];
+  
+//   for (let i = 0; i < library.length; i++) {
+//     let book = library[i];
+
+//     if (book.readingStatus) {
+//       console.log(`Already read '${book.title}' by ${book.author}.`);
+//     } else {
+//       console.log(`You still need to read '${book.title}' by ${book.author}.`);
+//     }
+//   }
+  
+
+// 26
+
+// let my_string: any = "hello4567"; 
+
+// try {
+//     let reversed_string: string = my_string.split('').reverse().join('');
+//     console.log(`Reversed string is : ${reversed_string}`);
+// } catch (err) {
+//     console.log(`Error : ${err.message}`);
+// } finally {
+//     console.log(`Type of my_string is : ${typeof my_string}`);
+// }
+
+
+// 27
+
+// function checkHeight(my_height: any): void {
+//     if (isNaN(my_height)) {
+//         throw new Error("notANumberError");
+//     }
+//     if (my_height > 100) {
+//         throw new Error("HugeHeightError");
+//     }
+//     if (my_height < 1) {
+//         throw new Error("TinyHeightError");
+//     }
+//     console.log(`Height is: ${my_height}`);
+// }
+
+// try {
+//     let my_height: any = "seven"; 
+//     checkHeight(my_height);
+// } catch (err) {
+//     console.log(err.message);  
+// }
+
+
+// 28
+
+// class Car {
+//     name: string;
+//     mileage: number;
+//     max_speed: number;
+
+//     constructor(name: string, mileage: number, max_speed: number) {
+//         this.name = name;
+//         this.mileage = mileage;
+//         this.max_speed = max_speed;
+//     }
+// }
+
+// const car1 = new Car("Hyundai i20", 20, 160);
+// console.log(car1);
+
+
+
+// 29
+
+// function myFilter(myArray: number[], callback: (sum: number) => boolean): number {
+//     const sum = myArray.reduce((acc, val) => acc + val, 0);
+//     callback(sum); 
+//     return sum;
+// }
+
+// function isEven(sum: number): boolean {
+//     return sum % 2 === 0;
+// }
+
+// const input = "12345";
+// const myArray = input.split("").map(Number);
+
+// const result = myFilter(myArray, isEven);
+
+// console.log("Result : ",result); 
 
 
 
