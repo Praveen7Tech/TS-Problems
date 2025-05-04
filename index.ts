@@ -332,8 +332,221 @@
 //       }
 //     }
 //   }
+
+//   main();
+  
+// 17
+
+// class Calculator {
+//     // Method for addition
+//     addition(a: number, b: number): number {
+//       return a + b;
+//     }
+  
+//     // Method for subtraction
+//     subtraction(a: number, b: number): number {
+//       return a - b;
+//     }
+  
+//     // Method for multiplication
+//     multiplication(a: number, b: number): number {
+//       return a * b;
+//     }
+  
+//     // Method for division
+//     division(a: number, b: number): number {
+//       if (b === 0) {
+//         console.log("Error: Division by zero is not allowed.");
+//         return NaN; // Return NaN for division by zero
+//       }
+//       return a / b;
+//     }
+//   }
+  
+//   // Main function to drive the program
+//   function main(): void {
+//     let calc = new Calculator(); 
+//     let operation: string | null = prompt("Choose an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division");
+  
+//     let num1: number = parseFloat(prompt("Enter the first number:") || "0");
+//     let num2: number = parseFloat(prompt("Enter the second number:") || "0");
+  
+//     switch (operation) {
+//       case "1":
+//         console.log(`Result of Addition: ${calc.addition(num1, num2)}`);
+//         break;
+//       case "2":
+//         console.log(`Result of Subtraction: ${calc.subtraction(num1, num2)}`);
+//         break;
+//       case "3":
+//         console.log(`Result of Multiplication: ${calc.multiplication(num1, num2)}`);
+//         break;
+//       case "4":
+//         let result = calc.division(num1, num2);
+//         if (!isNaN(result)) {
+//           console.log(`Result of Division: ${result}`);
+//         }
+//         break;
+//       default:
+//         console.log("Invalid operation choice.");
+//     }
+//   }
   
 //   main();
+ 
+
+// 18
+
+// function calculateGrade(writtenTest: number, labExams: number, assignments: number): number {
+//     let weightedGrade = (writtenTest * 70) / 100 + (labExams * 20) / 100 + (assignments * 10) / 100;
+//     return weightedGrade;
+//   }
+  
+//   function main(): void {
+//     let writtenTest: number = parseFloat(prompt("Enter marks for Written Test:") || "0");
+//     let labExams: number = parseFloat(prompt("Enter marks for Lab Exams:") || "0");
+//     let assignments: number = parseFloat(prompt("Enter marks for Assignments:") || "0");
+  
+//     let grade = calculateGrade(writtenTest, labExams, assignments);
+//     console.log(`Grade of the student is: ${grade}`);
+//   }
+  
+//   main();
+  
+
+// 19
+
+// function calculateTax(income: number): number {
+//     let tax: number = 0;
+  
+//     if (income <= 250000) {
+//       tax = 0;
+//     } else if (income > 250000 && income <= 500000) {
+//       tax = (income - 250000) * 0.05;
+//     } else if (income > 500000 && income <= 1000000) {
+//       tax = (250000 * 0.05) + (income - 500000) * 0.20;
+//     } else if (income > 1000000 && income <= 5000000) {
+//       tax = (250000 * 0.05) + (500000 * 0.20) + (income - 1000000) * 0.30;
+//     }
+  
+//     return tax;
+//   }
+  
+//   function main(): void {
+//     let income: number = parseFloat(prompt("Enter the annual income:") || "0");
+    
+//     if (income < 0) {
+//       console.log("Invalid income amount.");
+//       return;
+//     }
+  
+//     let tax = calculateTax(income);
+//     console.log(`Income tax amount = ${tax.toFixed(2)}`);
+//   }
+  
+//   main();
+  
+
+// 20
+
+// function printPattern(): void {
+//     let num: number = 1;
+  
+//     for (let i = 1; i <= 4; i++) {
+//       let row = '';
+//       for (let j = 1; j <= i; j++) {
+//         row += num + '\t'; 
+//         num++;              
+//       }
+//       console.log(row); 
+//     }
+//   }
+  
+//   printPattern();
+  
+
+// 21
+
+// function multiplyAdjacent(arr: number[]): number[] {
+//     let result: number[] = [];
+    
+//     for (let i = 0; i < arr.length - 1; i++) {
+//       result.push(arr[i] * arr[i + 1]);  // Multiply adjacent values and store in result array
+//     }
+  
+//     return result;
+//   }
+  
+//   function main(): void {
+//     let limit: number = parseInt(prompt("Enter the array limit:") || "0");
+//     let array: number[] = [];
+    
+//     for (let i = 0; i < limit; i++) {
+//       let value: number = parseInt(prompt(`Enter value ${i + 1} of the array:`) || "0");
+//       array.push(value);  
+//     }
+    
+//     let result = multiplyAdjacent(array);
+    
+//     console.log("Output:");
+//     console.log(result.join('\t'));  
+//   }
+  
+//   main();
+  
+
+// 22
+
+function getArray(rows: number, cols: number): number[][] {
+    let array: number[][] = [];
+    
+    for (let i = 0; i < rows; i++) {
+      let row: number[] = [];
+      for (let j = 0; j < cols; j++) {
+        let value: number = parseInt(prompt(`Enter value for array[${i + 1}][${j + 1}]:`) || "0");
+        row.push(value);
+      }
+      array.push(row);
+    }
+    
+    return array;
+  }
+  
+  function addArray(array1: number[][], array2: number[][], rows: number, cols: number): number[][] {
+    let resultArray: number[][] = [];
+    
+    for (let i = 0; i < rows; i++) {
+      let row: number[] = [];
+      for (let j = 0; j < cols; j++) {
+        row.push(array1[i][j] + array2[i][j]);  
+      }
+      resultArray.push(row);
+    }
+    
+    return resultArray;
+  }
+  
+  function displayArray(array: number[][]): void {
+    console.log("Sum of array 1 and array 2:");
+    for (let i = 0; i < array.length; i++) {
+      console.log(array[i].join('\t'));  
+    }
+  }
+  
+  function main(): void {
+    let size: number = parseInt(prompt("Enter the size of the array (rows/columns):") || "0");
+    
+    console.log("Enter the values of array 1");
+    let array1 = getArray(size, size);  
+    
+    console.log("Enter the values of array 2");
+    let array2 = getArray(size, size);  
+    
+    let sumArray = addArray(array1, array2, size, size);  
+    
+    displayArray(sumArray);  
+  
+  main();
   
 
 

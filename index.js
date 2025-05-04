@@ -238,26 +238,143 @@
 //   }
 //   main();
 // 16
-function isPrime(num) {
-    if (num <= 1)
-        return false;
-    for (var i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0)
-            return false;
+// function isPrime(num: number): boolean {
+//     if (num <= 1) return false;
+//     for (let i = 2; i <= Math.sqrt(num); i++) {
+//       if (num % i === 0) return false;
+//     }
+//     return true;
+//   }
+//   function main(): void {
+//     let input: string | null = prompt("Enter a number:");
+//     if (input !== null) {
+//       let num: number = parseInt(input);
+//       if (isPrime(num)) {
+//         console.log("number is a Prime number");
+//       } else {
+//         console.log("number is NOT a Prime number");
+//       }
+//     }
+//   }
+//   main();
+// 17
+// class Calculator {
+//     // Method for addition
+//     addition(a: number, b: number): number {
+//       return a + b;
+//     }
+//     // Method for subtraction
+//     subtraction(a: number, b: number): number {
+//       return a - b;
+//     }
+//     // Method for multiplication
+//     multiplication(a: number, b: number): number {
+//       return a * b;
+//     }
+//     // Method for division
+//     division(a: number, b: number): number {
+//       if (b === 0) {
+//         console.log("Error: Division by zero is not allowed.");
+//         return NaN; // Return NaN for division by zero
+//       }
+//       return a / b;
+//     }
+//   }
+//   // Main function to drive the program
+//   function main(): void {
+//     let calc = new Calculator(); 
+//     let operation: string | null = prompt("Choose an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division");
+//     let num1: number = parseFloat(prompt("Enter the first number:") || "0");
+//     let num2: number = parseFloat(prompt("Enter the second number:") || "0");
+//     switch (operation) {
+//       case "1":
+//         console.log(`Result of Addition: ${calc.addition(num1, num2)}`);
+//         break;
+//       case "2":
+//         console.log(`Result of Subtraction: ${calc.subtraction(num1, num2)}`);
+//         break;
+//       case "3":
+//         console.log(`Result of Multiplication: ${calc.multiplication(num1, num2)}`);
+//         break;
+//       case "4":
+//         let result = calc.division(num1, num2);
+//         if (!isNaN(result)) {
+//           console.log(`Result of Division: ${result}`);
+//         }
+//         break;
+//       default:
+//         console.log("Invalid operation choice.");
+//     }
+//   }
+//   main();
+// 18
+// function calculateGrade(writtenTest: number, labExams: number, assignments: number): number {
+//     let weightedGrade = (writtenTest * 70) / 100 + (labExams * 20) / 100 + (assignments * 10) / 100;
+//     return weightedGrade;
+//   }
+//   function main(): void {
+//     let writtenTest: number = parseFloat(prompt("Enter marks for Written Test:") || "0");
+//     let labExams: number = parseFloat(prompt("Enter marks for Lab Exams:") || "0");
+//     let assignments: number = parseFloat(prompt("Enter marks for Assignments:") || "0");
+//     let grade = calculateGrade(writtenTest, labExams, assignments);
+//     console.log(`Grade of the student is: ${grade}`);
+//   }
+//   main();
+// 19
+// function calculateTax(income: number): number {
+//     let tax: number = 0;
+//     if (income <= 250000) {
+//       tax = 0;
+//     } else if (income > 250000 && income <= 500000) {
+//       tax = (income - 250000) * 0.05;
+//     } else if (income > 500000 && income <= 1000000) {
+//       tax = (250000 * 0.05) + (income - 500000) * 0.20;
+//     } else if (income > 1000000 && income <= 5000000) {
+//       tax = (250000 * 0.05) + (500000 * 0.20) + (income - 1000000) * 0.30;
+//     }
+//     return tax;
+//   }
+//   function main(): void {
+//     let income: number = parseFloat(prompt("Enter the annual income:") || "0");
+//     if (income < 0) {
+//       console.log("Invalid income amount.");
+//       return;
+//     }
+//     let tax = calculateTax(income);
+//     console.log(`Income tax amount = ${tax.toFixed(2)}`);
+//   }
+//   main();
+// 20
+// function printPattern(): void {
+//     let num: number = 1;
+//     for (let i = 1; i <= 4; i++) {
+//       let row = '';
+//       for (let j = 1; j <= i; j++) {
+//         row += num + '\t'; 
+//         num++;              
+//       }
+//       console.log(row); 
+//     }
+//   }
+//   printPattern();
+// 21
+function multiplyAdjacent(arr) {
+    var result = [];
+    for (var i = 0; i < arr.length - 1; i++) {
+        result.push(arr[i] * arr[i + 1]); // Multiply adjacent values and store in result array
     }
-    return true;
+    return result;
 }
 function main() {
-    var input = prompt("Enter a number:");
-    if (input !== null) {
-        var num = parseInt(input);
-        if (isPrime(num)) {
-            console.log("number is a Prime number");
-        }
-        else {
-            console.log("number is NOT a Prime number");
-        }
+    var limit = parseInt(prompt("Enter the array limit:") || "0");
+    var array = [];
+    for (var i = 0; i < limit; i++) {
+        var value = parseInt(prompt("Enter value ".concat(i + 1, " of the array:")) || "0");
+        array.push(value);
     }
+    var result = multiplyAdjacent(array);
+    console.log("Output:");
+    console.log(result.join('\t'));
 }
 main();
 // export{}
